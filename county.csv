@@ -1,0 +1,44 @@
+variable,description,group
+B01003_001E,Total Population,totalpop
+B19313_001E,Aggregate income in the past 12 months (in 2018 inflation-adjusted dollars),income
+B20002_001E,Median earnings in the past 12 months (in 2018 inflation-adjusted dollars),medinc
+B19082_001E,Quintile Share of Aggregate Income!!Lowest Quintile,Q1
+B19082_002E,Quintile Share of Aggregate Income!!Second Quintile,Q2
+B19082_003E,Quintile Share of Aggregate Income!!Third Quintile,Q3
+B19082_004E,Quintile Share of Aggregate Income!!Fourth Quintile,Q4
+B19082_005E,Quintile Share of Aggregate Income!!Highest Quintile,Q5
+B19082_006E,Top 5 Percent,Top5
+C17002_001E,Total Income to Poverty Ratio last 12 months,total-incpovrat
+C17002_002E,Under .50,<.50
+C17002_003E,.50 to .99,.50-.99
+C17002_004E,1.00 to 1.24,1.00-1.24
+C17002_005E,1.25 to 1.49,1.25-1.49
+C17002_006E,1.50 to 1.84,1.50-1.84
+C17002_007E,1.85 to 1.99,1.85-1.99
+C17002_008E,2.00 and over,2.00+
+B25003_001E,Total,total-tenure
+B25003_002E,Owner occupied,owner
+B25003_003E,Renter occupied,renter
+B23025_001E,Total,total-employment
+B23025_002E,In labor force,laborforce
+B23025_003E,In labor force!!Civilian labor force,civillaborforce
+B23025_004E,In labor force!!Civilian labor force!!Employed,employed
+B23025_005E,In labor force!!Civilian labor force!!Unemployed,unemployed
+B23025_006E,In labor force!!Armed Forces,military
+B23025_007E,Not in labor force,non-labor
+B19001_001E,HOUSEHOLD INCOME IN THE PAST 12 MONTHS (IN 2018 INFLATION-ADJUSTED DOLLARS),total-hhincome
+B05012_002E,Native,native
+B05012_003E,Foreign-Born,foreign
+B02001_001E,Total,total-race
+B02001_002E,White alone,white
+B02001_003E,Black or African American alone,black
+B02001_004E,American Indian and Alaska Native alone,nativeamer
+B02001_005E,Asian alone,asianpac
+B02001_006E,Native Hawaiian and Other Pacific Islander alone,asianpac
+B02001_007E,Some other race alone,other
+B02001_008E,Two or more races,multiracial
+B02001_009E,Two or more races!!Two races including Some other race,multiracial
+B02001_010E,Two or more races!!Two races excluding Some other race and three or more races,multiracial
+B03003_001E,Total,total-hispanic
+B03003_002E,Not Hispanic or Latino,nonhispanic
+B03003_003E,Hispanic or Latino,hispanic

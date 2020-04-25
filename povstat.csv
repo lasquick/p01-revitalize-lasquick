@@ -1,0 +1,4 @@
+variable,description,group
+B01003_001E,Total Population,totalpop
+B17001_001E,Estimate!!Total,totalpovpop
+B17001_002E,Income in the past 12 months below poverty level,<pov

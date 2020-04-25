@@ -1,0 +1,8 @@
+variable,description,group
+B19083_001E,Gini Index,gini
+B19082_001E,Quintile Share of Aggregate Income!!Lowest Quintile,Q1
+B19082_002E,Quintile Share of Aggregate Income!!Second Quintile,Q2
+B19082_003E,Quintile Share of Aggregate Income!!Third Quintile,Q3
+B19082_004E,Quintile Share of Aggregate Income!!Fourth Quintile,Q4
+B19082_005E,Quintile Share of Aggregate Income!!Highest Quintile,Q5
+B19082_006E,Top 5 Percent,Top5
