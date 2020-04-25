@@ -1,5 +1,7 @@
 variable,description,group
 B01003_001E,Total Population,totalpop
+B17001_001E,Estimate!!Total,totalpovpop
+B17001_002E,Income in the past 12 months below poverty level,<pov
 B19313_001E,Aggregate income in the past 12 months (in 2018 inflation-adjusted dollars),income
 B20002_001E,Median earnings in the past 12 months (in 2018 inflation-adjusted dollars),medinc
 B19082_001E,Quintile Share of Aggregate Income!!Lowest Quintile,Q1
