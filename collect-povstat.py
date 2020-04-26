@@ -4,6 +4,9 @@ Created on Fri Mar 27 15:25:37 2020
 
 @author: lasqu
 """
+#This file completes a manual Census API request to collect population and
+#poverty variables for all US counties. The data is exported to a CSV file to
+#be used with the accompanying analyze file. 
 
 import requests
 import pandas as pd

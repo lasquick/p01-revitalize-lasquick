@@ -4,8 +4,9 @@ Created on Fri Mar 27 15:25:37 2020
 
 @author: lasqu
 """
-#This API request for each county is done manually. Change the county list
-#and rank here and the rest of the file will automatically run and save.
+#This file completes a manual Census API request for each county on a given 
+#list. Change the county list and rank here and the rest of the file will 
+#automatically run and export a CSV to be used in the accompanying analyze file.
 
 import requests
 import pandas as pd
@@ -23,7 +24,6 @@ var_string = ','.join(var_list)
 county_info = pd.read_csv(county_list+'.csv')
 
 #Create in_list to identify top ten counties' county and state IDs.
-#Would be useful to turn this into an API-pull for-loop in the future.
 in_list = ('county:'+county_info['county'].astype(str).str.zfill(3)+' state:'\
            +county_info['state'].astype(str).str.zfill(2))
 print(in_list)

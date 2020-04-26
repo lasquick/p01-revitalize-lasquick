@@ -4,6 +4,9 @@ Created on Fri Mar 27 16:11:39 2020
 
 @author: lasqu
 """
+#This file cleans county poverty and population data for 2012 and identifies
+#the top ten counties with the highest poverty rates. The resulting CSV file
+#is used to compute the percentage point change in poverty in the 12-18 file.
 
 import pandas as pd
 pd.set_option('display.max_rows',None)
@@ -39,13 +42,12 @@ results['pctpov'] = pct['<pov']
 results['state'] = results['state'].astype(str).str.zfill(2)
 results['county'] = results['county'].astype(str).str.zfill(3)
 results['geoid'] = results['state'].astype(str)+results['county'].astype(str)
-#results['geoid'] = results['geoid'].astype(str)
-#Sets name as the index and writes to CSV file.
-#results.set_index('geoid', inplace=True)
+
 
 #Uses dictionary to rename variable.
 newnames = {'B01003_001E':'totalpop', 'B17001_001E':'totalpovpop',
             'B17001_002E': '<pov'}
 results.rename(newnames,axis='columns', inplace=True)
-results['geoid12'] = results['geoid'].astype(str)
+
+#Exports to CSV for analysis.
 results.to_csv('povstat-map-12.csv')

@@ -4,6 +4,9 @@ Created on Fri Mar 27 16:11:39 2020
 
 @author: lasqu
 """
+#This file cleans county Gini coefficient and quantile income shate data 
+#and identifies the top ten counties with the highest Gini coefficients. The 
+#resulting CSV file is used to map county level inequality data.
 
 import pandas as pd
 pd.set_option('display.max_rows',None)
@@ -30,11 +33,7 @@ group_by_level = results.groupby(var_group, axis='columns', sort=False)
 by_level = group_by_level.sum()
 #levels = ['gini', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Top5']
 
-#Compute the percent of the population in each aggregate group.
-#pct = 100*by_level.div(by_level['totalpovpop'],axis='index')
-
-#Provides samples of ratio data for counties.
-#Identifies top 10.
+#Identifies top 10 counties with highest Gini coefficients.
 top10 = results['gini'].sort_values(ascending=False)
 top10 = top10.iloc[0:10]
 print(top10)
@@ -43,9 +42,8 @@ print(top10)
 results['state'] = results['state'].astype(str).str.zfill(2)
 results['county'] = results['county'].astype(str).str.zfill(3)
 results['geoid'] = results['state'].astype(str)+results['county'].astype(str)
-#results['geoid'] = results['geoid'].astype(str)
-#Sets name as the index and writes to CSV file.
-#results.set_index('geoid', inplace=True)
 
+
+#Exports to CSV file.
 results['geoid'] = results['geoid'].astype(str)
 results.to_csv('gini-map.csv')

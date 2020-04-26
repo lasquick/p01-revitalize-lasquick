@@ -4,6 +4,13 @@ Created on Sat Mar 14 18:33:22 2020
 
 @author: lasqu
 """
+#This file merges US county population and poverty data for 2012 and 2018.
+#The script then computes the percentage point change in poverty for all
+#counties and identifies the highest poverty change counties. The script
+#also uses distributional analyses to explore the relationship between poverty
+#rates and population and creates lists by county population segments of the
+#counties with the highest increases and decreases in poverty. The resulting
+#dataframe is exported to a CSV file to be used for QGIS mapping.
 
 import pandas as pd
 import numpy as np
@@ -14,15 +21,14 @@ plt.style.use('seaborn-whitegrid')
 pov18 = pd.read_csv('povstat-map.csv', index_col='NAME')
 pov12 = pd.read_csv('povstat-map-12.csv', index_col='NAME', dtype=str)
 
-#Retains only important fields from committee info file.
-#com_info = com_info[['CMTE_ID', 'CMTE_NM', 'CMTE_PTY_AFFILIATION', 'CAND_ID']]
-
-#Merges committee info and totals data.
+#Merges population and poverty data.
 pov_merged = pov12.merge(pov18, how='right', on='NAME', validate='m:1', indicator=True)
 print(pov_merged['_merge'].value_counts())
 pov_merged.drop(['_merge'], axis='columns', inplace=True)
 
 # _x variables for 2012 data; _y variables for 2018 data.
+
+#Calculates percentage point changes in county poverty rates.
 pov_merged['changepov'] = pov_merged['pctpov_y'] - pov_merged['pctpov_x'].astype(float)
 
 #Identifies top 10 counties increase in poverty.

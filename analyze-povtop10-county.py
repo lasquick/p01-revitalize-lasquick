@@ -4,6 +4,10 @@ Created on Fri Mar 27 16:11:39 2020
 
 @author: lasqu
 """
+#This file requires a single input change--county rank-- to compile exploratory
+#analyses of census tract-level demographic data for top poverty counties.
+#The script prints ranked variable lists, generates charts, and exports a CSV
+#file to be used for mapping data prepared in this file.
 
 import pandas as pd
 import seaborn as sns
@@ -56,7 +60,7 @@ print('\nPoverty Rates:',by_level['pctpov'].sort_values(ascending=False).round(2
 #Basic Visualizations of Poverty Data
 sns.set(style='white')
 
-#for v in [by_level['pctpov'],by_level['medinc'],by_level['unemployment']]:
+#Histogram of poverty rates by census tracts.
 plt.figure()
 fg = sns.distplot(by_level['pctpov'])
 plt.savefig(countyrank+'_pctpov.png')
@@ -72,7 +76,7 @@ plt.savefig(countyrank+'_unemployment.png')
 jp = sns.jointplot('pctpov','totalpop',data=by_level,kind='hex')
 jp.savefig(countyrank+'pctpov_by_pop.png')
 
-#Creates geoid variable from concatenating state and county variables.
+#Creates geoid variable from concatenating state, county, and tract variables.
 results['state'] = results['state'].astype(str).str.zfill(2)
 results['county'] = results['county'].astype(str).str.zfill(3)
 by_level['geoid'] = results['geoid'] = results['state']+results['county']+results['tract'].astype(str)

@@ -4,6 +4,11 @@ Created on Fri Mar 27 16:11:39 2020
 
 @author: lasqu
 """
+#This file cleans county poverty and population data for 2018 and identifies
+#the top ten counties with the highest poverty rates--this list is exported
+#to a CSV file to be used in the county collect script. The resulting CSV file
+#is used to map poverty data and to compute the percentage point change 
+#in poverty in the 12-18 file.
 
 import pandas as pd
 pd.set_option('display.max_rows',None)

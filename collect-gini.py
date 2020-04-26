@@ -4,6 +4,10 @@ Created on Fri Mar 27 15:25:37 2020
 
 @author: lasqu
 """
+#This file completes a Census API request to pull Gini coefficient and
+#quantile share of aggregate income variables for all US counties.
+#The resulting data is exported to a CSV file for use in the accompanying
+#analyze script.
 
 import requests
 import pandas as pd
