@@ -12,12 +12,12 @@ import pandas as pd
 pd.set_option('display.max_rows',None)
 
 #Uses CSV to identify desired poverty information grouping.
-var_info = pd.read_csv('povstat.csv', index_col='variable')
+var_info = pd.read_csv('variables/povstat.csv', index_col='variable')
 var_group = var_info['group']
 print(var_group)
 
 #Pulls in CSV of Census data capture.
-results = pd.read_csv('census-povstat-12.csv', index_col='NAME')
+results = pd.read_csv('census/census-povstat-12.csv', index_col='NAME')
 
 #Removes Puerto Rico from data.
 results = results[results.state != 72]
@@ -50,4 +50,4 @@ newnames = {'B01003_001E':'totalpop', 'B17001_001E':'totalpovpop',
 results.rename(newnames,axis='columns', inplace=True)
 
 #Exports to CSV for analysis.
-results.to_csv('povstat-map-12.csv')
+results.to_csv('mapfile/povstat-map-12.csv')

@@ -12,12 +12,12 @@ import pandas as pd
 pd.set_option('display.max_rows',None)
 
 #Uses CSV to identify desired poverty information grouping.
-var_info = pd.read_csv('gini.csv', index_col='variable')
+var_info = pd.read_csv('variables/gini.csv', index_col='variable')
 var_group = var_info['group']
 print(var_group)
 
 #Pulls in CSV of Census data capture.
-results = pd.read_csv('census-gini.csv', index_col='NAME')
+results = pd.read_csv('census/census-gini.csv', index_col='NAME')
 
 #Removes Puerto Rico from data.
 results = results[results.state != 72]
@@ -46,4 +46,4 @@ results['geoid'] = results['state'].astype(str)+results['county'].astype(str)
 
 #Exports to CSV file.
 results['geoid'] = results['geoid'].astype(str)
-results.to_csv('gini-map.csv')
+results.to_csv('mapfile/gini-map.csv')

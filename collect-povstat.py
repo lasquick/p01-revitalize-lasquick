@@ -12,7 +12,7 @@ import requests
 import pandas as pd
 
 #Uses CSV file with Census data variable names to create data pull request.
-var_info = pd.read_csv('povstat.csv')
+var_info = pd.read_csv('variables/povstat.csv')
 var_name = var_info['variable'].to_list()
 var_list = ['NAME']+var_name
 var_string = ','.join(var_list)
@@ -40,5 +40,5 @@ attain = pd.DataFrame(columns=colnames, data=datarows)
 
 #Sets name as the index and writes to CSV file.
 attain.set_index('NAME', inplace=True)
-attain.to_csv('census-povstat.csv')
+attain.to_csv('census/census-povstat.csv')
     

@@ -15,6 +15,16 @@ The project’s data management file convention relies on a two-stage Python scr
 
 Some analyses combine data from 2012 and 2018 to compute changes in statistical poverty data over time. The “analyze” Python script files for time-comparisons combine multi-year data using a merge command, and the analysis of the resulting dataframe focuses on computing differences across time. Finally, county-level poverty and inequality data is used to identify the counties with the highest percentage of residents living in poverty and the counties with the largest increases and decreases in poverty rates between 2012 and 2018. For each question, the analyze files generate lists of the top 3-10 counties that meet this criteria, and these lists are used to identify counties of special interest. The county-specific Python files pull, clean, and analyze demographic variables of interest at the census tract-level, and analysts can use the resulting “top” and “bottom” lists to identify counties to run through the county-specific files. The resulting data and analysis is exported as a variable-map CSV file, which is read into QGIS, joined to the appropriate Census Tigerline shapefile, and edited to create relevant visual comparisons of economic and demographic variables.
 
+The repository data structure organizes the files in the following folders:
+  1. Root: All python collect and analyze files are stored in the root directory. The README and Summary of Findings files are also located here.
+  2. Variables: CSV Lists of Census variables used for the API requests.
+  3. Census: CSV exports of completed Census API requests.
+  4. Lists: CSV files of poverty lists generated from analyze scripts.
+  5. Mapfile: CSV files of prepared data, to be joined to Shapefiles in QGIS workbooks.
+  6. QGIS: QGIS workbooks that combine Mapfiles and Shapefiles are located here.
+  7. Shapefiles: ZIPs of US, State, and County Tigerline Shapefiles downloaded from the Census Bureau.
+  8. Visualizations: PNGs of all map visualizations from QGIS and plots saved from analyze scripts.
+
 
 ### Detailed Script Overview (by run order)
 

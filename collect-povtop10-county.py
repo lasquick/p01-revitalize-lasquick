@@ -16,12 +16,12 @@ county_list = 'povtop10'
 county_rank = '1'
 
 #Uses CSV file with Census data variable names to create data pull request.
-var_info = pd.read_csv('county.csv')
+var_info = pd.read_csv('variables/county.csv')
 var_name = var_info['variable'].to_list()
 var_list = ['NAME']+var_name
 var_string = ','.join(var_list)
 
-county_info = pd.read_csv(county_list+'.csv')
+county_info = pd.read_csv('lists/'+county_list+'.csv')
 
 #Create in_list to identify top ten counties' county and state IDs.
 in_list = ('county:'+county_info['county'].astype(str).str.zfill(3)+' state:'\
@@ -54,4 +54,4 @@ attain = pd.DataFrame(columns=colnames, data=datarows)
 
 #Sets name as the index and writes to CSV file.
 attain.set_index('NAME', inplace=True)
-attain.to_csv('census-'+county_list+'-'+county_rank+'.csv')
+attain.to_csv('census/census-'+county_list+'-'+county_rank+'.csv')

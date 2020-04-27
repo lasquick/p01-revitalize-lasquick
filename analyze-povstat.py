@@ -14,12 +14,12 @@ import pandas as pd
 pd.set_option('display.max_rows',None)
 
 #Uses CSV to identify desired poverty information grouping.
-var_info = pd.read_csv('povstat.csv', index_col='variable')
+var_info = pd.read_csv('variables/povstat.csv', index_col='variable')
 var_group = var_info['group']
 print(var_group)
 
 #Pulls in CSV of Census data capture.
-results = pd.read_csv('census-povstat.csv', index_col='NAME')
+results = pd.read_csv('census/census-povstat.csv', index_col='NAME')
 
 #Removes Puerto Rico from data.
 results = results[results.state != 72]
@@ -58,7 +58,7 @@ povtop10 = povtop10.sort_values('pctpov', ascending=False)
 print('\nTop 10 poverty rates: ',povtop10['pctpov'], 'total county population', povtop10['totalpop'])
 
 #Exports top 10 to csv for county-based analysis.
-povtop10.to_csv('povtop10.csv')
+povtop10.to_csv('lists/povtop10.csv')
 
 results['geoid'] = results['geoid'].astype(str)
-results.to_csv('povstat-map.csv')
+results.to_csv('mapfile/povstat-map.csv')

@@ -18,8 +18,8 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn-whitegrid')
 
 #Reads in csv data.
-pov18 = pd.read_csv('povstat-map.csv', index_col='NAME')
-pov12 = pd.read_csv('povstat-map-12.csv', index_col='NAME', dtype=str)
+pov18 = pd.read_csv('mapfile/povstat-map.csv', index_col='NAME')
+pov12 = pd.read_csv('mapfile/povstat-map-12.csv', index_col='NAME', dtype=str)
 
 #Merges population and poverty data.
 pov_merged = pov12.merge(pov18, how='right', on='NAME', validate='m:1', indicator=True)
@@ -107,4 +107,4 @@ plt.scatter(pov_merged['changepop'], pov_merged['changepov'], marker='o')
 
 
 #Exports merged comparison data to CSV file to map.
-pov_merged.to_csv('povstat-12-18-map.csv',header=True)
+pov_merged.to_csv('mapfile/povstat-12-18-map.csv',header=True)

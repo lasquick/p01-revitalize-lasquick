@@ -20,13 +20,13 @@ countyrank = 'povtop10-1'
 
 
 #Uses CSV to identify desired poverty information grouping.
-var_info = pd.read_csv('county.csv', index_col='variable')
+var_info = pd.read_csv('variables/county.csv', index_col='variable')
 var_group = var_info['group']
 print(var_group)
 
 #Pulls in CSV of Census data capture.
 #NOTE: Would be useful to add file name for loop to loop all top 10 files.
-results = pd.read_csv('census-'+countyrank+'.csv', index_col='NAME')
+results = pd.read_csv('census/census-'+countyrank+'.csv', index_col='NAME')
 
 #Uses grouping convention to group and rename Census variables.
 group_by_level = results.groupby(var_group, axis='columns', sort=False)
@@ -63,18 +63,18 @@ sns.set(style='white')
 #Histogram of poverty rates by census tracts.
 plt.figure()
 fg = sns.distplot(by_level['pctpov'])
-plt.savefig(countyrank+'_pctpov.png')
+plt.savefig('visualizations/'+countyrank+'_pctpov.png')
 
 plt.figure()
 fg = sns.distplot(by_level['medinc'])
-plt.savefig(countyrank+'_medinc.png')
+plt.savefig('visualizations/'+countyrank+'_medinc.png')
 
 plt.figure()
 fg = sns.distplot(by_level['unemployment'])
-plt.savefig(countyrank+'_unemployment.png')
+plt.savefig('visualizations/'+countyrank+'_unemployment.png')
 
 jp = sns.jointplot('pctpov','totalpop',data=by_level,kind='hex')
-jp.savefig(countyrank+'pctpov_by_pop.png')
+jp.savefig('visualizations/'+countyrank+'pctpov_by_pop.png')
 
 #Creates geoid variable from concatenating state, county, and tract variables.
 results['state'] = results['state'].astype(str).str.zfill(2)
@@ -82,4 +82,4 @@ results['county'] = results['county'].astype(str).str.zfill(3)
 by_level['geoid'] = results['geoid'] = results['state']+results['county']+results['tract'].astype(str)
 
 #Exports to CSV for mapping.
-by_level.to_csv(countyrank+'-map.csv')
+by_level.to_csv('mapfile/'+countyrank+'-map.csv')
